@@ -35,7 +35,10 @@ export function defineRoutes(router: IRouter) {
     },
     async (context, request, response) => {
         const client = context.core.elasticsearch.dataClient;
-        const indices = await client.callAsInternalUser('cat.indices', {"format":"json"});
+        const indices = await client.callAsInternalUser('cat.indices', {
+            headers: request.headers,
+            format:"json"
+        });
         const result = parseIndices(indices);
         return response.ok( { body: {result} })
     },),
@@ -46,9 +49,10 @@ export function defineRoutes(router: IRouter) {
     async (context, request, response) => {
         const client = context.core.elasticsearch.dataClient;
         const result = await client.callAsInternalUser('cluster.state', {
-	    metric: 'metadata',
+            headers: request.headers,
+            metric: 'metadata',
             index: request.params.name
-	});
+        });
         return response.ok( { body: {result} })
     },);
 }
