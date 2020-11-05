@@ -1,0 +1,16 @@
+{
+    "skipArchive": false,
+    "buildDestination": "./build",
+    "skipInstallDependencies": false,
+    "buildVersion": "7.8.1",
+    "kibanaVersion": "7.8.1",
+    "buildSourcePatterns": [
+	"target/**/*",
+	"package.json",
+	"yarn.lock",
+	"tsconfig.json",
+	"{public,server}/**/*",
+	"kibana.json"
+    ]
+}
+

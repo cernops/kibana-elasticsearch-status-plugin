@@ -1,0 +1,22 @@
+{
+   "name": "elasticsearch_status",
+   "version": "7.8.1",
+   "description": "Kibana Elasticsearch status",
+   "main": "server/plugin.js",
+   "scripts": {
+      "lint": "eslint",
+      "start": "plugin-helpers start",
+      "test:server": "plugin-helpers test_server",
+      "test:browser": "plugin-helpers test_browser",
+      "build": "plugin-helpers build",
+      "postinstall": "plugin-helpers postinstall"
+   },
+   "dependencies": {
+      "alertifyjs": "^1.13.1"
+   },
+   "devDependencies": {
+      "@kbn/plugin-helpers": "link:../../packages/kbn-plugin-helpers",
+      "kbn-plugin-helpers": "link:../../kibana/packages/kbn-plugin-helpers",
+      "typescript": "^4.0.3"
+   }
+}
