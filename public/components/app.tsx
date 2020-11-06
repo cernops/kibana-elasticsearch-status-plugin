@@ -15,12 +15,12 @@ import {
     EuiText,
     EuiBasicTable,
     EuiLink,
+    EuiSwitch,
 } from '@elastic/eui';
 import { CoreStart } from '../../../../src/core/public';
 import { NavigationPublicPluginStart } from '../../../../src/plugins/navigation/public';
 
 import { PLUGIN_ID, PLUGIN_NAME } from '../../common';
-//import {alertify} from '../../node_modules/alertifyjs';
 import * as alertify from 'alertifyjs'
 import 'alertifyjs/build/css/alertify.css';
 
@@ -92,9 +92,9 @@ export const KibanaElasticsearchStatusPluginApp = ({
 	const new_mappings = await index_mappings.result;
 	setMappings(new_mappings);
 	if (mappings) {
-	    const pretty = '<PRE>' + JSON.stringify(mappings, null, 2) + '</PRE>';
+	    const pretty = '<pre style="color:blue">' + JSON.stringify(mappings, null, 2) + '</pre>';
 	    alertify.alert(
-		`Index ${index_name} settings`,
+		`<b style='color:black'>Index ${index_name} settings</b>`,
 		pretty,
 		function(){ alertify.message('OK')})
 		.set({'resizable':true});

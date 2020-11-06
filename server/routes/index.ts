@@ -43,7 +43,6 @@ function filter_headers(request) {
     ];
     var headers = {};
     for (var header in request.headers) {
-        console.log(header);
         if (whitelist.indexOf(header) > -1){
             headers[header] = request.headers[header];
         }
